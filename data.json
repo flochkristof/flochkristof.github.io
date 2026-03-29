@@ -1,0 +1,403 @@
+{
+  "name": "Kristóf Floch",
+  "navLogo": "kristof.floch",
+  "profileImage": "media/profile.jpg",
+  "title": "VP of Technology, ETH Robotics Club<br>MSc Student in Robotics, Systems and Control",
+  "contact": {
+    "links": [
+      {
+        "icon": "fa-brands fa-linkedin",
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/kristof-floch/"
+      },
+      {
+        "icon": "fa-brands fa-github",
+        "label": "GitHub",
+        "url": "https://github.com/flochkristof/"
+      },
+      {
+        "icon": "fa-solid fa-graduation-cap",
+        "label": "Google Scholar",
+        "url": "https://scholar.google.com/citations?user=e4M8_CQAAAAJ"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "ETH Zürich",
+      "degree": "MSc in Robotics, Systems and Control",
+      "date": "Sep. 2024 –",
+      "bullets": [
+        "Excellence Scholar (ESOP) of the Department of Mechanical and Process Engineering (D-MAVT)",
+        "Semester Project: Robust Imitation Learning via Model Predictive Control"
+      ]
+    },
+    {
+      "institution": "Budapest University of Technology and Economics",
+      "degree": "MSc in Electrical Engineering",
+      "date": "Feb. 2023 – Jun. 2024",
+      "bullets": [
+        "Specialization: Control and Vision systems & Robotics",
+        "Grade: Excellent with highest honours (4.92/5)"
+      ]
+    },
+    {
+      "institution": "Budapest University of Technology and Economics",
+      "degree": "BSc in Mechatronics Engineering",
+      "date": "Sep. 2019 – Jan. 2023",
+      "bullets": [
+        "Specialization: Design of Smart Devices",
+        "Grade: Excellent with highest honours (4.99/5)"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "org": "ETH Robotics Club (ETHRC)",
+      "role": "Vice President of Technology",
+      "date": "Jan. 2026 –",
+      "bullets": [
+        "Board member, participating in strategic direction and leadership of the newly established ETHRC",
+        "Coordinating flagship & affiliated tech projects; leading a team of 120 robotics students across 6 project teams"
+      ]
+    },
+    {
+      "org": "askEarth AG",
+      "role": "Backend Software Development Engineer",
+      "date": "Jan. 2026 –",
+      "bullets": [
+        "Designed and optimized backend systems for an AI-driven geospatial intelligence platform using Python services",
+        "Contributed to the design and implementation of APIs, data pipelines, and integration of external and proprietary data sources"
+      ]
+    },
+    {
+      "org": "ETH Robotics Club (ETHRC)",
+      "role": "Vice President of Events",
+      "date": "Jul. 2025 – Jan. 2026",
+      "bullets": [
+        "Board member, participating in strategic direction and leadership of the newly established ETHRC",
+        "Leading of the events team"
+      ]
+    },
+    {
+      "org": "ETH Zürich",
+      "role": "Research Assistant",
+      "date": "Nov. 2024 – Jul. 2025",
+      "bullets": [
+        "Intelligent Control Systems Group, Institute for Dynamic Systems and Control (Prof. Melanie Zeilinger)",
+        "Research in learning-based nonlinear MPC via linear parameter-varying embedding and sequential quadratic programming"
+      ]
+    },
+    {
+      "org": "HUN-REN Institute for Computer Science and Control (SZTAKI)",
+      "role": "Graduate Student Researcher, Developer",
+      "date": "Mar. 2022 – Jul. 2024",
+      "bullets": [
+        "AIMotionLab research group (Dr. Tamás Péni, Prof. Roland Tóth) focusing on autonomous mobile robotics",
+        "Research and development of model- and learning-based trajectory tracking and planning algorithms"
+      ]
+    },
+    {
+      "org": "Budapest University of Technology and Economics (BME)",
+      "role": "Research Assistant, Software Developer",
+      "date": "Feb. 2022 – Nov. 2022",
+      "bullets": [
+        "Developed a standalone motion-tracking application at the Department of Applied Mechanics: open-sourced on GitHub and published on PyPI"
+      ]
+    },
+    {
+      "org": "albernet.hu",
+      "role": "Freelance Software Developer",
+      "date": "Mar. 2021 – Sep. 2022",
+      "bullets": [
+        "Built a platform automating administrative duties for apartment owners in long-term leasing",
+        "Full-stack: HTML/CSS, JavaScript front-end; Python Django back-end"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "SQP-LPV-MPC: Real-Time Nonlinear MPC",
+      "org": "ETH Zürich — Intelligent Control Systems Group",
+      "date": "2024–2025",
+      "description": "Developed a unified framework connecting Sequential Quadratic Programming (SQP) and LPV-MPC using a differential formulation and FTC-embedding technique. Applied this unified scheme to stochastic MPC problems, demonstrating real-world feasibility through GP-based racing at the limit of vehicle handling.",
+      "tags": [
+        "MPC",
+        "SQP",
+        "LPV",
+        "RTI",
+        "Optimization",
+        "Autonomous Racing"
+      ],
+      "links": [
+        {
+          "label": "Preprint",
+          "icon": "fa-solid fa-file-lines",
+          "url": "https://arxiv.org/abs/2511.09106"
+        },
+        {
+          "label": "Code",
+          "icon": "fa-brands fa-github",
+          "url": "https://github.com/flochkristof/sqp_lpv_mpc"
+        }
+      ],
+      "media": {
+        "type": "youtube",
+        "src": "https://youtu.be/-zPCEP9Ahok?si=E7Gcv5YvZeCr5WBR"
+      }
+    },
+    {
+      "title": "GP-based Adaptive Trajectory Tracking",
+      "org": "SZTAKI — AIMotionLab",
+      "date": "2022–2024",
+      "description": "Developed a GP-based adaptive controller that utilizes dynamic active learning and a decoupled LPV structure to refine uncertain vehicle dynamics online. The framework provides formal robust performance certificates via L2 gain analysis, validated through MuJoCo simulations and real-time implementation on the F1TENTH platform.",
+      "tags": [
+        "Gaussian Processes",
+        "Dynamic Active Learning",
+        "LPV",
+        "Convex Optimization",
+        "Bayesian Optimization",
+        "MuJoCo"
+      ],
+      "links": [
+        {
+          "label": "IEEE TCST",
+          "icon": "fa-solid fa-file-lines",
+          "url": "https://ieeexplore.ieee.org/abstract/document/11260980"
+        },
+        {
+          "label": "ECC 2024",
+          "icon": "fa-solid fa-file-lines",
+          "url": "https://ieeexplore.ieee.org/document/10591248"
+        }
+      ]
+    },
+    {
+      "title": "Robust Imitation Learning via MPC",
+      "org": "ETH Zürich — Semester Project",
+      "date": "2024–2025",
+      "description": "Developed a robust imitation learning algorithm for nonlinear systems that leverages MPC as a control policy with guaranteed incremental input-to-state stability. The framework uses the Envelope Theorem for efficient closed-loop training and a counterexample-guided sampling approach to provide formal performance certificates. Validated in extensive simulation studies.",
+      "tags": [
+        "Imitation Learning",
+        "MPC",
+        "Reinforcement Learning",
+        "Closed-loop Policy Optimization"
+      ],
+      "links": []
+    },
+    {
+      "title": "Motion Tracker Beta",
+      "org": "BME — Department of Applied Mechanics",
+      "date": "2022",
+      "description": "Open-source GUI application for video-based motion tracking, developed for experimental mechanics research. Implements feature-point tracking and displacement field computation. Published in SoftwareX and available on PyPI.",
+      "tags": [
+        "Python",
+        "OpenCV",
+        "GUI",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "label": "SoftwareX",
+          "icon": "fa-solid fa-file-lines",
+          "url": "https://www.sciencedirect.com/science/article/pii/S2352711023001206"
+        },
+        {
+          "label": "GitHub",
+          "icon": "fa-brands fa-github",
+          "url": "https://github.com/flochkristof/motiontracker"
+        }
+      ],
+      "media": {
+        "type": "youtube",
+        "src": "https://www.youtube.com/watch?v=q3eWOA0FEmk"
+      }
+    },
+    {
+      "title": "Small-Scale Autonomous Vehicle Platform",
+      "org": "SZTAKI — AIMotionLab",
+      "date": "2022–2023",
+      "description": "Developed and deployed a comprehensive ROS2 control stack for miniature autonomous vehicles, spanning from perception and motion capture integration to real-time control pipelines. The project involved rigorous system identification and LPV model derivation, validated through hardware-in-the-loop testing on the F1TENTH platform.",
+      "tags": [
+        "ROS2",
+        "System Identification",
+        "Trajectory Tracking",
+        "Perception"
+      ],
+      "links": [
+        {
+          "label": "Thesis",
+          "icon": "fa-solid fa-file-lines",
+          "url": "https://eprints.sztaki.hu/10544/1/2023-01-09__FlochK__BScThesis__model_based_motion_control_of_F1TENTH%20%282%29.pdf"
+        }
+      ],
+      "media": {
+        "type": "youtube",
+        "src": "https://youtu.be/X_GDFcN_bQE?si=IusxTyoQF3FTgrTE"
+      }
+    },
+    {
+      "title": "albernet.hu",
+      "org": "Freelance",
+      "date": "2021–2022",
+      "description": "Full-stack web platform automating administrative workflows for residential landlords — lease management, document generation, and tenant communication. Built solo from scratch.",
+      "tags": [
+        "Python",
+        "Django",
+        "JavaScript",
+        "HTML/CSS"
+      ],
+      "links": [
+        {
+          "label": "Website",
+          "icon": "fa-solid fa-arrow-up-right-from-square",
+          "url": "#"
+        }
+      ]
+    }
+  ],
+  "publications": {
+    "journal": [
+      {
+        "authors": "K. Floch, T. Péni, R. Tóth",
+        "title": "Gaussian-Process-based adaptive trajectory-tracking with dynamic active learning for autonomous ground vehicles",
+        "venue": "IEEE Transactions on Control Systems Technology, 2025",
+        "url": "https://ieeexplore.ieee.org/abstract/document/11260980"
+      },
+      {
+        "authors": "K. Floch, A. Kossa",
+        "title": "Motion Tracker Beta: A GUI based open-source motion tracking application",
+        "venue": "SoftwareX 23, 2023",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2352711023001206"
+      }
+    ],
+    "conference": [
+      {
+        "authors": "K. Floch, A. Lahr, R. Tóth, M. N. Zeilinger",
+        "title": "Unifying Sequential Quadratic Programming and Linear Parameter Varying Algorithms for Real-Time Model Predictive Control",
+        "venue": "European Control Conference, 2026",
+        "url": "https://arxiv.org/pdf/2511.09106"
+      },
+      {
+        "authors": "K. Floch, T. Péni, R. Tóth",
+        "title": "Gaussian-Process-Based Adaptive Trajectory Tracking Control for Autonomous Ground Vehicles",
+        "venue": "European Control Conference, 2024",
+        "url": "https://ieeexplore.ieee.org/document/10591248"
+      },
+      {
+        "authors": "K. Floch, A. Kossa",
+        "title": "Motion Tracker Beta: an open-source motion-tracking software",
+        "venue": "31st International Conference on Mechanical Engineering, 2023",
+        "url": "https://ojs.emt.ro/oget/en/article/view/1210"
+      },
+      {
+        "authors": "K. Floch, T. Péni, R. Tóth, C. Budai",
+        "title": "Modeling and control of small-scale vehicle platforms",
+        "venue": "31st International Conference on Mechanical Engineering, 2023",
+        "url": "https://ojs.emt.ro/oget/en/article/view/1178"
+      }
+    ]
+  },
+  "awards": [
+    {
+      "title": "2nd prize & BMW Group Special Award — Systems and Control Section",
+      "context": "Awarded at the 2025 National Students' Scientific Conference (OTDK)",
+      "date": "Apr. 2025"
+    },
+    {
+      "title": "Excellence Scholarship and Opportunity Award of the ETH Foundation",
+      "context": "Awarded by the ETH Foundation to outstanding students for their academic excellence and potential",
+      "date": "Sep. 2024–"
+    },
+    {
+      "title": "1st prize — Applied Informatics Seciton",
+      "context": "Awarded at the 2024 EELISA International Scientific Student Competition",
+      "date": "May 2024"
+    },
+    {
+      "title": "2nd prize — Thesis Competition, Hungarian Scientific Association for Transport",
+      "context": "Awarded by the Hungarian Scientific Association for Transport",
+      "date": "Jan. 2024"
+    },
+    {
+      "title": "1st prize & Pro Progressio Award — Intelligent Systems Section",
+      "context": "Awarded at the 2023 BME Students' Scientific Conference (TDK)",
+      "date": "Nov. 2023"
+    },
+    {
+      "title": "New National Excellence Scholarship",
+      "context": "Student research grant awarded by the Hungarian Ministry of Innovation and Culture for outstanding academic performance and research potential in higher education",
+      "date": "Sep. 2023 – Jun. 2024"
+    },
+    {
+      "title": "National Higher Education Scholarship",
+      "context": "Awarded by the Ministry of Innovation and Culture of Hungary for outstanding academic performance in higher education",
+      "date": "Sep. 2023 – Sep. 2024"
+    },
+    {
+      "title": "Nokia Young Scientist Award",
+      "context": "Awarded by Nokia Bell Labs for outstanding scientific contributions",
+      "date": "Jun. 2023"
+    },
+    {
+      "title": "SZTAKI Student Researcher Award",
+      "context": "Awarded by the HUN-REN Institute for Computer Science and Control (SZTAKI) for outstanding research contributions as a student researcher",
+      "date": "Jun. 2023"
+    },
+    {
+      "title": "1st prize — Mechatronics, Biomechatronics, Robotics Section",
+      "context": "Awarded at the 2023 National Students' Scientific Conference (OTDK)",
+      "date": "Apr. 2023"
+    },
+    {
+      "title": "2nd prize — Applied Computer Science Section",
+      "context": "Awarded at the 2023 National Students' Scientific Conference (OTDK)",
+      "date": "Apr. 2023"
+    },
+    {
+      "title": "1st prize — BSc Section",
+      "context": "Awarded at the IEEE Hungary Section Student Paper Contest",
+      "date": "Jan. 2023"
+    },
+    {
+      "title": "1st prize — Mechatronics Section",
+      "context": "Awarded at the 2022 BME Students' Scientific Conference (TDK)",
+      "date": "Nov. 2022"
+    },
+    {
+      "title": "1st prize & Special Award — Applied Mechanics Section",
+      "context": "Awarded at the 2022 BME Students' Scientific Conference (TDK)",
+      "date": "Nov. 2022"
+    }
+  ],
+  "skills": {
+    "programming": [
+      "Python",
+      "C/C++",
+      "Rust",
+      "Git",
+      "Kubernetes",
+      "Docker",
+      "Azure",
+      "AWS",
+      "ROS1/2",
+      "MATLAB & Simulink",
+      "HTML/CSS",
+      "JavaScript"
+    ],
+    "languages": [
+      {
+        "lang": "English",
+        "level": "C1 (IELTS)"
+      },
+      {
+        "lang": "German",
+        "level": "B2 (ÖSD)"
+      },
+      {
+        "lang": "Hungarian",
+        "level": "Native"
+      }
+    ]
+  }
+}

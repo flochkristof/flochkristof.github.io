@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #f8f9fa;
+      --surface:    #ffffff;
+      --border:     #e2e8f0;
+      --accent:     #2563eb;
+      --accent-dim: rgba(37,99,235,0.08);
+      --text:       #0f172a;
+      --muted:      #64748b;
+      --nav-h:      52px;
+      --radius:     6px;
+      --max-w:      860px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 15px; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      z-index: 100;
+      background: rgba(248,249,250,0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem; font-weight: 700; color: var(--text);
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; color: var(--muted); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-links a.active { color: var(--accent); text-decoration: none; }
+
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--text); border-radius: 1px; }
+
+    /* Page wrapper */
+    .page { max-width: var(--max-w); margin: 0 auto; padding: 0 5%; }
+
+    /* Sections */
+    section { border-bottom: 1px solid var(--border); padding: 52px 0; }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.35rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+      font-weight: 700; line-height: 1.2; color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Hero */
+    #hero {
+      padding-top: calc(var(--nav-h) + 52px);
+      padding-bottom: 52px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 3rem;
+    }
+
+    .hero-text { flex: 1; min-width: 0; }
+
+    .hero-photo {
+      width: 148px; height: 148px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .hero-name {
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
+      font-weight: 700; line-height: 1.05;
+      letter-spacing: -1px; color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-title {
+      font-size: 0.9rem; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.5;
+    }
+
+    .hero-contact { display: flex; flex-wrap: wrap; gap: 1.1rem; }
+    .hero-contact a {
+      font-size: 0.8rem; color: var(--muted);
+      display: flex; align-items: center; gap: 6px; transition: color 0.15s;
+    }
+    .hero-contact a:hover { color: var(--accent); text-decoration: none; }
+    .hero-contact a i { color: var(--accent); font-size: 0.85rem; }
+
+    /* Timeline */
+    .timeline {
+      display: flex; flex-direction: column;
+      border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+    }
+
+    .tl-item {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 1.1rem 1.3rem; transition: background 0.15s;
+    }
+    .tl-item:last-child { border-bottom: none; }
+    .tl-item:hover { background: #f4f7ff; }
+
+    .tl-header {
+      display: flex; justify-content: space-between;
+      align-items: baseline; gap: 1rem; margin-bottom: 0.15rem;
+    }
+    .tl-org { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+    .tl-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--muted); white-space: nowrap; flex-shrink: 0;
+    }
+    .tl-role { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-bottom: 0.5rem; }
+    .tl-bullets { list-style: none; }
+    .tl-bullets li {
+      font-size: 0.8rem; color: var(--muted); line-height: 1.6;
+      padding-left: 1rem; position: relative; margin-bottom: 0.1rem;
+    }
+    .tl-bullets li::before { content: '\00B7'; position: absolute; left: 0; color: var(--accent); }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      display: flex; flex-direction: column;
+      transition: background 0.15s; overflow: hidden;
+    }
+    .project-card:hover { background: #f4f7ff; }
+
+    .project-media { width: 100%; overflow: hidden; border-radius: 4px; background: #eef0f3; }
+    .project-media img { width: 100%; height: 190px; object-fit: cover; display: block; }
+    .project-media .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; }
+    .project-media .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+    .project-body { padding: 1.3rem; display: flex; flex-direction: column; gap: 0.7rem; flex: 1; }
+
+    .project-title { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+    .project-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; color: var(--muted); margin-top: 0.15rem;
+    }
+    .project-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .project-tag {
+      background: var(--accent-dim); color: var(--accent);
+      border-radius: 4px; padding: 2px 8px;
+      font-size: 0.7rem; font-weight: 500;
+    }
+
+    .project-links { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; padding-top: 0.25rem; }
+    .project-link {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 0.76rem; font-weight: 500; color: var(--muted);
+      border: 1px solid var(--border); border-radius: 4px; padding: 4px 10px;
+      transition: all 0.15s;
+    }
+    .project-link:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); text-decoration: none; }
+    .project-link i { font-size: 0.78rem; }
+
+    /* Publications */
+    .pub-group { margin-bottom: 1.5rem; }
+    .pub-group:last-child { margin-bottom: 0; }
+
+    .pub-group-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.6rem;
+    }
+
+    .pub-list { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+
+    .pub-item {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 0.9rem 1.2rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+      transition: background 0.15s; text-decoration: none; color: inherit;
+    }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-item:hover { background: #f4f7ff; text-decoration: none; color: inherit; }
+
+    .pub-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--accent); font-weight: 700;
+      flex-shrink: 0; padding-top: 1px;
+    }
+    .pub-body h4 { font-size: 0.83rem; font-weight: 600; color: var(--text); margin-bottom: 0.15rem; line-height: 1.4; }
+    .pub-body .pub-authors { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.15rem; }
+    .pub-body .pub-venue { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--accent); }
+    .pub-body .pub-note { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
+
+    /* Awards */
+    .award-list { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .award-item {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 0.85rem 1.2rem;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem;
+      transition: background 0.15s;
+    }
+    .award-item:last-child { border-bottom: none; }
+    .award-item:hover { background: #f4f7ff; }
+    .award-title { font-size: 0.83rem; font-weight: 500; color: var(--text); line-height: 1.45; }
+    .award-context {
+      font-size: 0.76rem; color: var(--muted); margin-top: 0.3rem;
+      font-style: italic;
+    }
+    .award-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; padding-top: 2px;
+    }
+
+    /* Skills */
+    .skills-layout { display: flex; flex-direction: column; gap: 1.25rem; }
+    .skill-row { display: flex; gap: 1rem; align-items: baseline; }
+    .skill-row-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--muted); white-space: nowrap; width: 110px; flex-shrink: 0;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .skill-tag {
+      background: var(--accent-dim); color: var(--accent);
+      border-radius: 4px; padding: 3px 10px;
+      font-size: 0.775rem; font-weight: 500;
+    }
+    .lang-tag { font-size: 0.8rem; color: var(--text); }
+    .lang-tag span { color: var(--muted); font-size: 0.75rem; }
+
+    /* Contact */
+    .contact-inner { max-width: 480px; }
+    .contact-inner p { font-size: 0.875rem; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.7; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .contact-link {
+      display: flex; align-items: center; gap: 7px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 7px 14px;
+      font-size: 0.8rem; font-weight: 500; color: var(--text); transition: all 0.15s;
+    }
+    .contact-link i { font-size: 0.9rem; color: var(--accent); }
+    .contact-link:hover { border-color: var(--accent); background: var(--accent-dim); color: var(--accent); text-decoration: none; }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 1.25rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--surface);
+    }
+    footer span { color: var(--accent); }
+
+    /* Responsive */
+    @media (max-width: 760px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .hero-photo { width: 100px; height: 100px; }
+    }
+    @media (max-width: 640px) {
+      .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 1.5rem; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: rgba(248,249,250,0.98); padding: 1rem 5%; gap: 0.75rem; border-bottom: 1px solid var(--border); }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+      .tl-header { flex-direction: column; gap: 0.1rem; }
+      .award-item { flex-direction: column; gap: 0.2rem; }
+      .skill-row { flex-direction: column; gap: 0.4rem; }
+      .skill-row-label { width: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="nav">
+    <div class="nav-logo" id="nav-logo"></div>
+    <ul class="nav-links" id="nav-links"></ul>
+    <div class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="page">
+    <section id="hero"></section>
+    <section id="projects"></section>
+    <section id="experience"></section>
+    <section id="education"></section>
+    <section id="publications"></section>
+    <section id="awards"></section>
+    <section id="skills"></section>
+    <section id="contact"></section>
+  </div>
+  <footer id="footer"></footer>
+
+  <script>
+  const NAV_SECTIONS = ['projects','experience','education','publications','awards','skills','contact'];
+  const NAV_LABELS   = { education:'Education', experience:'Experience', projects:'Projects', publications:'Publications', awards:'Awards', skills:'Skills', contact:'Contact' };
+
+  function renderNav(d) {
+    document.getElementById('nav-logo').innerHTML = d.navLogo + '<span>_</span>';
+    document.getElementById('nav-links').innerHTML =
+      NAV_SECTIONS.map(id => `<li><a href="#${id}">${NAV_LABELS[id]}</a></li>`).join('');
+  }
+
+  function renderHero(d) {
+    const links = d.contact.links
+      .map(l => `<a href="${l.url}"><i class="${l.icon}"></i>${l.label}</a>`).join('');
+    const photo = d.profileImage
+      ? `<img class="hero-photo" src="${d.profileImage}" alt="${d.name}" />`
+      : '';
+    document.getElementById('hero').innerHTML = `
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1 class="hero-name">${d.name}</h1>
+          <p class="hero-title">${d.title}</p>
+          <div class="hero-contact">${links}</div>
+        </div>
+        ${photo}
+      </div>`;
+  }
+
+  function renderTimeline(id, items, label, title) {
+    const rows = items.map(e => `
+      <div class="tl-item">
+        <div class="tl-header">
+          <span class="tl-org">${e.institution || e.org}</span>
+          <span class="tl-date">${e.date}</span>
+        </div>
+        <div class="tl-role">${e.degree || e.role}</div>
+        <ul class="tl-bullets">
+          ${e.bullets.map(b => `<li>${b}</li>`).join('')}
+        </ul>
+      </div>`).join('');
+    document.getElementById(id).innerHTML = `
+      <p class="section-label">${label}</p>
+      <h2 class="section-title">${title}</h2>
+      <div class="timeline">${rows}</div>`;
+  }
+
+  function youtubeId(src) {
+    const short = src.match(/youtu\.be\/([^?&/]+)/);
+    if (short) return short[1];
+    const long  = src.match(/[?&]v=([^&]+)/);
+    if (long)  return long[1];
+    return src; // already a bare ID
+  }
+
+  function projectMedia(p) {
+    if (!p.media) return '';
+    if (p.media.type === 'youtube')
+      return `<div class="project-media"><div class="video-wrap"><iframe src="https://www.youtube.com/embed/${youtubeId(p.media.src)}" allowfullscreen loading="lazy"></iframe></div></div>`;
+    if (p.media.type === 'vimeo')
+      return `<div class="project-media"><div class="video-wrap"><iframe src="https://player.vimeo.com/video/${p.media.src}" allowfullscreen loading="lazy"></iframe></div></div>`;
+    if (p.media.type === 'video')
+      return `<div class="project-media"><video src="${p.media.src}" controls style="width:100%;display:block;"></video></div>`;
+    if (p.media.type === 'image')
+      return `<div class="project-media"><img src="${p.media.src}" alt="${p.media.alt || p.title}" /></div>`;
+    return '';
+  }
+
+  function renderProjects(d) {
+    const cards = d.projects.map(p => `
+      <div class="project-card">
+        <div class="project-body">
+          <div>
+            <div class="project-title">${p.title}</div>
+            <div class="project-meta">${p.org} &nbsp;·&nbsp; ${p.date}</div>
+          </div>
+          <div class="project-desc">${p.description}</div>
+          <div class="project-tags">${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}</div>
+          <div class="project-links">
+            ${(p.links || []).map(l => `<a href="${l.url}" class="project-link"><i class="${l.icon}"></i>${l.label}</a>`).join('')}
+          </div>
+          ${projectMedia(p)}
+        </div>
+      </div>`).join('');
+    document.getElementById('projects').innerHTML = `
+      <p class="section-label">// projects</p>
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">${cards}</div>`;
+  }
+
+  function renderPublications(d) {
+    function group(title, items, startIdx) {
+      const rows = items.map((p, i) => `
+        <a href="${p.url}" class="pub-item">
+          <div class="pub-num">[${startIdx + i + 1}]</div>
+          <div class="pub-body">
+            <h4>${p.title}</h4>
+            <div class="pub-authors">${p.authors}</div>
+            <div class="pub-venue">${p.venue}</div>
+            ${p.note ? `<div class="pub-note">${p.note}</div>` : ''}
+          </div>
+        </a>`).join('');
+      return `<div class="pub-group">
+        <div class="pub-group-title">${title}</div>
+        <div class="pub-list">${rows}</div>
+      </div>`;
+    }
+    document.getElementById('publications').innerHTML = `
+      <p class="section-label">// publications</p>
+      <h2 class="section-title">Publications</h2>
+      ${group('Journal Articles', d.publications.journal, 0)}
+      ${group('Conference Papers', d.publications.conference, d.publications.journal.length)}`;
+  }
+
+  function renderAwards(d) {
+    const rows = d.awards.map(a => `
+      <div class="award-item">
+        <div>
+          <div class="award-title">${a.title}</div>
+          ${a.context ? `<div class="award-context">${a.context}</div>` : ''}
+        </div>
+        <div class="award-date">${a.date}</div>
+      </div>`).join('');
+    document.getElementById('awards').innerHTML = `
+      <p class="section-label">// awards & honours</p>
+      <h2 class="section-title">Awards &amp; Honours</h2>
+      <div class="award-list">${rows}</div>`;
+  }
+
+  function renderSkills(d) {
+    const progTags = d.skills.programming.map(s => `<span class="skill-tag">${s}</span>`).join('');
+    const langItems = d.skills.languages
+      .map(l => `<span class="lang-tag">${l.lang} <span>— ${l.level}</span></span>`).join('');
+    document.getElementById('skills').innerHTML = `
+      <p class="section-label">// skills</p>
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-layout">
+        <div class="skill-row">
+          <div class="skill-row-label">Programming</div>
+          <div class="skill-tags">${progTags}</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-row-label">Languages</div>
+          <div class="skill-tags">${langItems}</div>
+        </div>
+      </div>`;
+  }
+
+  function renderContact(d) {
+    const links = d.contact.links
+      .map(l => `<a href="${l.url}" class="contact-link"><i class="${l.icon}"></i>${l.label}</a>`).join('');
+    document.getElementById('contact').innerHTML = `
+      <p class="section-label">// contact</p>
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="contact-inner">
+        <p>Always open to collaborations! Reach out using the links below.</p>
+        <div class="contact-links">${links}</div>
+      </div>`;
+  }
+
+  function renderFooter(d) {
+    document.getElementById('footer').innerHTML =
+      `<p>${d.name} &nbsp;&middot;&nbsp; <span>${new Date().getFullYear()}</span></p>`;
+  }
+
+  function initNav() {
+    const navLinks = document.getElementById('nav-links');
+    const toggle   = document.getElementById('nav-toggle');
+    const sections = document.querySelectorAll('section[id]');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+      document.querySelectorAll('.nav-links a').forEach(a =>
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    }, { passive: true });
+
+    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.addEventListener('click', e => { if (e.target.tagName === 'A') navLinks.classList.remove('open'); });
+  }
+
+  fetch('data.json')
+    .then(r => r.json())
+    .then(d => {
+      document.getElementById('page-title').textContent = d.name;
+      renderNav(d);
+      renderHero(d);
+      renderTimeline('education',  d.education,  '// education',  'Education');
+      renderTimeline('experience', d.experience, '// experience', 'Experience');
+      renderProjects(d);
+      renderPublications(d);
+      renderAwards(d);
+      renderSkills(d);
+      renderContact(d);
+      renderFooter(d);
+      initNav();
+    })
+    .catch(() => console.error('Could not load data.json — serve via HTTP, not file://'));
+  </script>
+</body>
+</html>
