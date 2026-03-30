@@ -117,6 +117,32 @@
   ],
   "projects": [
     {
+      "title": "Flagship Projects",
+      "org": "ETH Robotics Club",
+      "date": "2025-",
+      "description": "As the VP of Technology, I am leading the development of the club's 6 technical divisions.<br><br><b>Humanoid Division</b><br>We are building the first fully-swiss made full-sized humanoid robot completely from scratch.<br><br><b>Aeronautics Division</b><br>We are developing our autonomous quadcopers to participate in international drone racing competitions.<br><br><b>Robot Learning Division</b><br>We are developing a state-of-the-art hardware and software stack to do research in robotic foundation models, dexterous manipulation and video-action models.<br><br><b>Robot Sorting Division</b><br>Applied vision-based robotic manupulation for waste management and logistics.<br><br><b>Robotics Security Division</b><br>Investigating security vulnerabilities in robotic systems from adversarial attacks against foundation models to hardware-level exploits.<br><br><b>Manufacturing Division</b><br>Providing the manufacturing backbone for all the club's projects.",
+      "tags": [
+        "Humanoid Robotics",
+        "Robot Learning",
+        "Drone Racing",
+        "Robotics Security",
+        "Autonomous Warehouse Logistics",
+        "Manufacturing"
+      ],
+      "links": [
+        {
+          "label": "ETHRC Website",
+          "icon": "fa-solid fa-globe",
+          "url": "https://ethrobotics.ch"
+        },
+        {
+          "label": "GitHub",
+          "icon": "fa-brands fa-github",
+          "url": "https://github.com/ETHRoboticsClub"
+        }
+      ]
+    },
+    {
       "title": "SQP-LPV-MPC: Real-Time Nonlinear MPC",
       "org": "ETH Zürich — Intelligent Control Systems Group",
       "date": "2024–2025",
